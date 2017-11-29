@@ -215,7 +215,9 @@
 
 
     <div id="navBar">
-        <div style="position: absolute; left: 52px;"><b>Sternberg Task</b></div>
+        <div style="position: absolute; left: 52px;">
+            <b>Sternberg Task</b>
+        </div>
         <div style="position: absolute; height: 75px; width: auto;right: -15px;">
 
             <input type="text" id="nTrials" name="numTrials" placeholder="# of trials">
@@ -238,13 +240,23 @@
 
     <div id="graphCont">
 
-        <div id="pie1" class="diagramContainer"></div>
-        <div id="pie2" class="diagramContainer"></div>
-        <div class="diagramContainer">
-            <div id="bar1" class="bChartContainer"></div>
-            <div id="bar2" class="bChartContainer"></div>
+        <div id="pie1" class="diagramContainer">
+            <div style="display: inline;position: absolute; bottom: 40px; font-size: small;padding-left: 95px;">Response</div>
         </div>
-        <div id="scatter" class="diagramContainer"></div>
+        <div id="pie2" class="diagramContainer">
+            <div style="display: inline;position: absolute; bottom: 40px; font-size: small;padding-left: 105px;">Correct</div>
+        </div>
+        <div class="diagramContainer">
+            <div id="bar1" class="bChartContainer">
+                <div style="display: inline;position: absolute; bottom: 0px; font-size: small;padding-left: 81px;">Mem Set Length</div>
+            </div>
+            <div id="bar2" class="bChartContainer">
+                <div style="display: inline;position:absolute; bottom: 0px; font-size: small;padding-left: 81px; padding-bottom: 148px">Mem Set Length</div>
+            </div>
+        </div>
+        <div id="scatter" class="diagramContainer">
+            <div style="display: inline;position: absolute; bottom: 15px; font-size: small;padding-left: 45px;">Mem Set Length vs R. Time (ms)</div>
+        </div>
     </div>
 
     <script type="text/javascript" src="d3.js"></script>
