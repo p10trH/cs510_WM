@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WM</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        body {
+            color: #fff;
+            font-family: sans-serif;
+            font-size: medium;
+            background-color: #bebebe;
+            height: 100%;
+            margin: 0px;
+        }
+
+        a.title:link,
+        a.title:visited {
+            color: black;
+            text-decoration: underline;
+            cursor: auto;
+        }
+
+        a.title:hover {
+            color: #3c3c3c;
+        }
+
+        a.title:link:active,
+        a.title:visited:active {
+            color: (internal value);
+        }
+
+        a:link,
+        a:visited {
+            color: white;
+            text-decoration: underline;
+            cursor: auto;
+        }
+
+        a:hover {
+            color: #d1d1d1;
+        }
+
+        a:link:active,
+        a:visited:active {
+            color: (internal value);
+        }
+
+        #navBar {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 75px;
+            color: #ebebeb;
+            background-color: #5a5a5a;
+            box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            line-height: 75px;
+            padding-left: 40px;
+            font-size: large;
+            overflow: hidden;
+            z-index: 5;
+        }
+
+        #intro {
+            position: fixed;
+            left: 0px;
+            top: 75px;
+            width: 100%;
+            height: 100%;
+            color: #151515;
+            background-color: #8d8d8d;
+            padding: 100px 200px;
+            text-align: justify;
+            font-size: large;
+            z-index: 5;
+        }
+
+        input[type=text],
+        select {
+            display: inline-block;
+            position: relative;
+            top: 19%;
+            transform: perspective(1px) translateY(-50%);
+            width: 60%;
+            padding: 12px 15px;
+            margin: 8px 0px;
+            font-size: medium;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .play {
+            display: inline-block;
+            font-size: 45px;
+            margin-left: 0px;
+            color: #00cece;
+        }
+
+        .play:hover {
+            color: #006f6f;
+            cursor: pointer;
+        }
+
+        .play:active {
+            color: #177e2f;
+            cursor: pointer;
+        }
+
+        #tableCont {
+            position: absolute;
+            left: 0px;
+            top: 75px;
+            width: 100%;
+            height: calc(100% - 300px - 75px);
+            color: #2c2c2c;
+            background-color: #8d8d8d;
+            box-shadow: 0px 0px 13px 2px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+            padding: 0px 20px;
+            z-index: 3;
+        }
+
+        table {
+            font-family: sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border-bottom: 1px solid #b2b2b2;
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            /*background-color: #0d5bef;*/
+        }
+
+        #graphCont {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            width: 100%;
+            height: 300px;
+            color: #2c2c2c;
+            background-color: #b5b5b5;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        .diagramContainer {
+
+            display: inline-block;
+            width: 24%;
+            min-width: 250px;
+            height: 98%;
+            border: 0px solid #ccc;
+            margin-top: 2px;
+            margin-left: 5px;
+        }
+
+        .bChartContainer {
+
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        path.slice {
+            stroke-width: 2px;
+        }
+
+        polyline {
+            opacity: .3;
+            stroke: black;
+            stroke-width: 2px;
+            fill: none;
+        }
+
+        /*path {
+            stroke: steelblue;
+            stroke-width: 2;
+            fill: none;
+        }*/
+
+        .amount {
+            fill: #fff;
+            text-anchor: middle;
+            font-size: small;
+        }
+
+        .x.axis .domain {
+            display: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="navBar">
+        <div style="position: absolute; left: 52px;"><b>Sternberg Task</b></div>
+        <div style="position: absolute; height: 75px; width: auto;right: -15px;">
+
+            <input type="text" id="nTrials" name="numTrials" placeholder="# of trials">
+
+            <div class="play" onclick="runTrials()">▶️</div>
+        </div>
+    </div>
+
+    <div id="intro">
+        <p>Many researchers of memory believe that there exists a short-term memory (STM) system that holds information for a few seconds. If the information in STM is not transferred to long term memory (LTM) for more permanent storage, it vanishes. As evidence of the existence of STM grew, researchers started to explore its properties. In a series of articles starting in 1966, Saul Sternberg developed an experimental approach to explore how information was retrieved from STM.</p>
+        <p>The basic approach is simple. Participants were shown a short (1 to 6 items) list of numbers and asked to memorize them. After putting them to memory, a probe number was shown. The probe number was either one of the numbers in the list or a new number. The participant was to respond as quickly as possible, indicating whether the probe number was in the list or not. The response time of the participant should reflect the time spent searching STM to determine whether the probe number is part of the list. By varying the number of items in the list, Sternberg hypothesized that he could test several theories of STM search.</p>
+    </div>
+
+    <div id="tableCont">
+        <table id="trialTable">
+
+        </table>
+
+    </div>
+
+    <div id="graphCont">
+
+        <div id="pie1" class="diagramContainer"></div>
+        <div id="pie2" class="diagramContainer"></div>
+        <div class="diagramContainer">
+            <div id="bar1" class="bChartContainer"></div>
+            <div id="bar2" class="bChartContainer"></div>
+        </div>
+        <div id="scatter" class="diagramContainer"></div>
+    </div>
+
+    <script type="text/javascript" src="d3.js"></script>
+
+    <script type="text/javascript" src="d3.v4.js"></script>
+
+    <script src="https://unpkg.com/jeezy@1.12.0/lib/jeezy.min.js"></script>
+    <script src="https://unpkg.com/d3-marcon@2.0.2/build/d3-marcon.min.js"></script>
+
+
+
+    <script type="text/javascript" src="wm_ui.js"></script>
+
+    <script>
+        function runTrials() {
+
+            document.getElementById("intro").style["display"] = "none";
+
+            numTrials = 0;
+
+            var tempValue = document.getElementById("nTrials").value;
+
+            if (tempValue == "" || isNaN(tempValue));
+            else
+                numTrials = parseInt(tempValue);
+
+            //console.log(numTrials);
+            //console.log(typeof(numTrials));
+
+            if (numTrials != 0) {
+                prepare();
+
+                printTrials();
+                printStats();
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
