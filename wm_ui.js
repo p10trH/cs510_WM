@@ -815,7 +815,7 @@ var x5 = d3.scaleLinear()
 var y5 = d3.scaleLinear()
     .range([height5, 0]);
 
-var xAxis = d3.axisBottom(x5).ticks(12),
+var xAxis = d3.axisBottom(x5).ticks(6),
     yAxis = d3.axisLeft(y5).ticks(12 * height5 / width5);
 
 var svg5 = d3.select("#" + chart).append("svg")
