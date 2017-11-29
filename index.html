@@ -208,6 +208,7 @@
         .x.axis .domain {
             display: auto;
         }
+
     </style>
 </head>
 
@@ -273,8 +274,6 @@
     <script>
         function runTrials() {
 
-            document.getElementById("intro").style["display"] = "none";
-
             numTrials = 0;
 
             var tempValue = document.getElementById("nTrials").value;
@@ -287,12 +286,15 @@
             //console.log(typeof(numTrials));
 
             if (numTrials != 0) {
+                document.getElementById("intro").style["display"] = "none";
+
                 prepare();
 
                 printTrials();
                 printStats();
             }
         }
+
     </script>
 
 

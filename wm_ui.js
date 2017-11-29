@@ -287,17 +287,17 @@ function printTrials() {
         tCell = tRow.insertCell(-1);
 
 
-//        if (trials[i].wm_Limit == 5) {
-    //            tCell.style["background-color"] = "#fdae6b";
-    //        } else if (trials[i].wm_Limit == 6) {
-    //            tCell.style["background-color"] = "#fd8d3c";
-    //        } else if (trials[i].wm_Limit == 7) {
-    //            tCell.style["background-color"] = "#f16913";
-    //        } else if (trials[i].wm_Limit == 8) {
-    //            tCell.style["background-color"] = "#d94801";
-    //        } else if (trials[i].wm_Limit == 9) {
-    //            tCell.style["background-color"] = "#a63603";
-    //        }
+        //        if (trials[i].wm_Limit == 5) {
+        //            tCell.style["background-color"] = "#fdae6b";
+        //        } else if (trials[i].wm_Limit == 6) {
+        //            tCell.style["background-color"] = "#fd8d3c";
+        //        } else if (trials[i].wm_Limit == 7) {
+        //            tCell.style["background-color"] = "#f16913";
+        //        } else if (trials[i].wm_Limit == 8) {
+        //            tCell.style["background-color"] = "#d94801";
+        //        } else if (trials[i].wm_Limit == 9) {
+        //            tCell.style["background-color"] = "#a63603";
+        //        }
 
         tCell.innerHTML = trials[i].wm_Limit;
 
