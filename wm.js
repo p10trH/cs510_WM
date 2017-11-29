@@ -8,7 +8,7 @@
 
 ----------------------------------------- */
 
-var numTrials = 1;
+var numTrials = 0;
 var numTrialsSum = 0;
 
 if (!isNaN(+process.argv[2]))
@@ -24,9 +24,16 @@ var symbols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // -----------------------------------------
 
-setup();
-printTrials();
-printStats();
+if (numTrials == 0) {
+    console.log("\n      Many researchers of memory believe that there exists a short-term memory (STM) system that holds information for a few seconds. If the information in STM is not transferred to long term memory (LTM) for more permanent storage, it vanishes. As evidence of the existence of STM grew, researchers started to explore its properties. In a series of articles starting in 1966, Saul Sternberg developed an experimental approach to explore how information was retrieved from STM.");
+    console.log("\n      The basic approach is simple. Participants were shown a short (1 to 6 items) list of numbers and asked to memorize them. After putting them to memory, a probe number was shown. The probe number was either one of the numbers in the list or a new number. The participant was to respond as quickly as possible, indicating whether the probe number was in the list or not. The response time of the participant should reflect the time spent searching STM to determine whether the probe number is part of the list. By varying the number of items in the list, Sternberg hypothesized that he could test several theories of STM search.");
+
+    console.log("\n Run the commmand:   node wm.js numTrials\n");
+} else {
+    setup();
+    printTrials();
+    printStats();
+}
 
 // -----------------------------------------
 
