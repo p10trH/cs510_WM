@@ -103,7 +103,10 @@ function sternbergTask(currTrial, memorySet, probe) {
 function getRandomNumber(min, max) { // function used to generate random whole numbers
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min; // the maximum is inclusive and the minimum is inclusive 
+
+    // the maximum is inclusive and the minimum is inclusive
+    
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
 }
 
 function generateList() { // function used to generate memory sets similar to original experiments
